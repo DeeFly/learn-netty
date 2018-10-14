@@ -44,7 +44,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>info.gaofei.learnnetty.DiscardServer</mainClass>
+                            <mainClass>info.gaofei.learnnetty.time.TimeClient</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
