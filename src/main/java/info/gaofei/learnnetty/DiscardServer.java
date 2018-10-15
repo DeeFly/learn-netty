@@ -1,7 +1,5 @@
-package info.gaofei;
+package info.gaofei.learnnetty;
 
-import info.gaofei.learnnetty.DiscardServer;
-import info.gaofei.learnnetty.TimeServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -12,14 +10,13 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
- * Hello world!
- *
+ * Discards any incoming data.
  */
-public class App {
+public class DiscardServer {
 
     private int port;
 
-    public App(int port) {
+    public DiscardServer(int port) {
         this.port = port;
     }
 
@@ -33,7 +30,7 @@ public class App {
                     .childHandler(new ChannelInitializer<SocketChannel>() { // (4)
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new TimeServerHandler());
+                            ch.pipeline().addLast(new DiscardServerHandler());
                         }
                     })
                     .option(ChannelOption.SO_BACKLOG, 128)          // (5)
